@@ -20,7 +20,6 @@ Route::prefix('v1')->group(function () {
         ->where(['id', '[0-9]+']);
     Route::delete('/libros/delete/{id}',[Libros_Controller::class, 'destroy'])
         ->where(['id', '[0-9]+']);    
-
 */
     Route::post('/vendedores',[VendedoresController::class,'store']);
     Route::get('/vendedores',[VendedoresController::class,'index']);
