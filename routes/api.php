@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MonitoresController;
+use App\Http\Controllers\VendedoresController ;
+
 
 Route::prefix('v1')->group(function () {
     Route::post('/monitores', [MonitoresController::class, 'store']);
@@ -19,12 +21,12 @@ Route::prefix('v1')->group(function () {
     Route::delete('/libros/delete/{id}',[Libros_Controller::class, 'destroy'])
         ->where(['id', '[0-9]+']);    
 
-
-    Route::post('/vendedores',[VendedorController::class,'store']);
-    Route::get('/vendedores',[VendedorController::class,'index']);
-    Route::put('/vendedores/edit/{id}',[VendedorController::class,'update'])
-            ->where('id','[0-9]+');
-    Route::delete('/vendedores/delete/{id}',[VendedorController::class, 'destroy'])
-            ->where(['id', '[0-9]+']);    
 */
+    Route::post('/vendedores',[VendedoresController::class,'store']);
+    Route::get('/vendedores',[VendedoresController::class,'index']);
+    Route::put('/vendedores/edit/{id}',[VendedoresController::class,'update'])
+            ->where('id','[0-9]+');
+    Route::delete('/vendedores/delete/{id}',[VendedoresController::class, 'destroy'])
+            ->where(['id', '[0-9]+']);    
+
 });
