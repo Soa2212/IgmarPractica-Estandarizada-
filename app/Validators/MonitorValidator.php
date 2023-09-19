@@ -9,10 +9,10 @@ class MonitorValidator
     public static function validate(array $data)
     {
         return Validator::make($data, [
-            "Tasa_de_refresco" => "required|min:2|max:4",
-            "Pulgadas" => "required|min:2|max:3",
-            "Precio" => "required|min:2|max:20",
-            "Stock" => "required|min:2|max:20"
+            "Tasa_de_refresco" => "required|numeric|min:60",
+            "Pulgadas" => "required|numeric|min:19",
+            "Precio" => "required|numeric|min:2",
+            "Stock" => "required|numeric|min:1|max:999"
         ]);
     }
 }
