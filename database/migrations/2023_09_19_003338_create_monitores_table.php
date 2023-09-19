@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('Precio',20);
             $table->string('Stock',20);
             $table->timestamps();
+            $table->softDeletes(); 
         });
     }
 
