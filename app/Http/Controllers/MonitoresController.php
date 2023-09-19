@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Monitor;
 use Illuminate\Support\Facades\Validator;
+use App\Validators\MonitorValidator;
+
 
 
 
@@ -13,12 +15,7 @@ class MonitoresController extends Controller
     public function store(Request $request, int $numero = 1)
     {
 
-        $validate = Validator::make($request->all(), [
-            "Tasa_de_refresco" => "required|min:2|max:4",
-            "Pulgadas" => "required|min:2|max:3",
-            "Precio" => "required|min:2|max:20",
-            "Stock" => "required|min:2|max:20"
-        ]);
+        $validate = MonitorValidator::validate($request->all());
 
         if ($validate->fails()) {
             return response()->json([
@@ -49,12 +46,7 @@ class MonitoresController extends Controller
     public function update(Request $request, int $id)
     {
 
-        $validate = Validator::make($request->all(), [
-            "Tasa_de_refresco" => "required|min:2|max:20",
-            "Pulgadas" => "required|min:2|max:20",
-            "Precio" => "required|min:2|max:20",
-            "Stock" => "required|min:2|max:20"
-        ]);
+        $validate = MonitorValidator::validate($request->all());
         
         if ($validate->fails()) {
             return response()->json([
